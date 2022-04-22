@@ -20,12 +20,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AddComponent } from './components/add/add.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    BanksComponent
+    BanksComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTabsModule
+    MatTabsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

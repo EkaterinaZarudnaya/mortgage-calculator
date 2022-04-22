@@ -1,0 +1,28 @@
+<form class="param-form" action="">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Bank name</mat-label>
+        <input matInput placeholder="Ex. Privat" type="text" maxlength="50" id="name" required>
+    </mat-form-field>
+    
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Interest rate</mat-label>
+        <input matInput placeholder="Ex. 8" type="number" maxlength="3" min="1" id="rate" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Maximum loan</mat-label>
+        <input matInput placeholder="Ex. 1000" type="number" maxlength="50" min="1" id="maxloan" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Minimum down payment</mat-label>
+        <input matInput placeholder="Ex. 500" type="number" maxlength="50" min="1" id="minpay" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Loan term</mat-label>
+        <input matInput placeholder="Ex. 12" type="number" maxlength="3" min="1" id="term" required>
+    </mat-form-field>
+
+    <button type="submit" class="registerbtn">Add</button>
+</form>
