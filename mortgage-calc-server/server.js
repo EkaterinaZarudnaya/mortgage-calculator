@@ -1,8 +1,10 @@
-var express = require("express")
-var app = express()
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
 
 var db = require("./database.js")
-var md5 = require("md5")
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -10,12 +12,15 @@ app.use(bodyParser.json());
 
 var HTTP_PORT = 8000
 
+app.options('*', cors())
+
 // Start server
 app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
-app.get("/api/banks", (req, res, next) => {
+app.get("/api/banks", cors(), (req, res, next) => {
+    res.set('Access-Control-Allow-Origin', 'http://localhost:8000/');
     var sql = "select * from banks"
     var params = []
     db.all(sql, params, (err, rows) => {
@@ -24,7 +29,6 @@ app.get("/api/banks", (req, res, next) => {
           return;
         }
         res.json({
-            "message":"success",
             "data":rows
         })
       });
@@ -40,7 +44,6 @@ app.get("/api/banks/:id", (req, res, next) => {
           return;
         }
         res.json({
-            "message":"success",
             "data":row
         })
       });
@@ -85,7 +88,6 @@ app.post("/api/banks/", (req, res, next) => {
             return;
         }
         res.json({
-            "message": "success",
             "data": data,
             "id" : this.lastID
         })
@@ -119,7 +121,6 @@ app.patch("/api/banks/:id", (req, res, next) => {
                 return;
             }
             res.json({
-                message: "success",
                 data: data
             })
     });

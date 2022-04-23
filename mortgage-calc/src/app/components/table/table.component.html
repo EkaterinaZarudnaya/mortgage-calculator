@@ -1,0 +1,44 @@
+<app-get-button (allBanksData)="getBanksData($event)"></app-get-button>
+<br><br>
+<table mat-table [dataSource]="banksData" class="mat-elevation-z8" >
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let banks"> {{banks.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Bank name</th>
+    <td mat-cell *matCellDef="let banks"> {{banks.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="rate">
+    <th mat-header-cell *matHeaderCellDef>Interest rate</th>
+    <td mat-cell *matCellDef="let banks">{{banks.rate}} %</td>
+  </ng-container>
+
+  <ng-container matColumnDef="maxloan">
+    <th mat-header-cell *matHeaderCellDef>Maximum loan</th>
+    <td mat-cell *matCellDef="let banks"> {{banks.maxloan}} UAH</td>
+  </ng-container>
+
+  <ng-container matColumnDef="minpay">
+    <th mat-header-cell *matHeaderCellDef>Minimum down payment</th>
+    <td mat-cell *matCellDef="let banks"> {{banks.minpay}} %</td>
+  </ng-container>
+
+  <ng-container matColumnDef="term">
+    <th mat-header-cell *matHeaderCellDef>Loan term</th>
+    <td mat-cell *matCellDef="let banks"> {{banks.term}} years</td>
+  </ng-container>
+
+  <ng-container matColumnDef="delButton">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let row; let banks">
+      <app-delete-button [getBanksId]="banks.id"></app-delete-button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

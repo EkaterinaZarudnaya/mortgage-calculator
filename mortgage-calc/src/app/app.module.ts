@@ -22,13 +22,21 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AddComponent } from './components/add/add.component';
 import {MatInputModule} from '@angular/material/input';
+import { GetButtonComponent } from './components/get-button/get-button.component';
+import { TableComponent } from './components/table/table.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     BanksComponent,
-    AddComponent
+    AddComponent,
+    GetButtonComponent,
+    TableComponent,
+    DeleteButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,10 @@ import {MatInputModule} from '@angular/material/input';
     MatPaginatorModule,
     MatSortModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

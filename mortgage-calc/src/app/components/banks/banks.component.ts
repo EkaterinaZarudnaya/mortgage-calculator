@@ -1,30 +1,15 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { BanksDataSource, BanksItem } from './banks-datasource';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-banks',
   templateUrl: './banks.component.html',
   styleUrls: ['./banks.component.css']
 })
-export class BanksComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<BanksItem>;
-  dataSource: BanksDataSource;
+export class BanksComponent implements OnInit {
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'rate','maxloan','minpay','term'];
+  constructor() { }
 
-  constructor() {
-    this.dataSource = new BanksDataSource();
+  ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
-  }
 }
