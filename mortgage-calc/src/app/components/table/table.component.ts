@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { pluck } from 'rxjs';
 
 interface Banks {
   name: string;
@@ -20,8 +22,19 @@ export class TableComponent {
   public banksData: Banks[] = [];
   displayedColumns = ['id', 'name', 'rate','maxloan','minpay','term','delButton'];
 
-  getBanksData(newItem: any = []) {
-    this.banksData = newItem;
+  ngOnInit() {
+    this.getBanksDb();
+  }
+
+  constructor (private http: HttpClient) { }
+
+  getBanksDb(){
+    const url = 'http://localhost:8000/api/banks'
+    this.http.get(url).pipe(pluck('data')).subscribe((res) => {
+      this.banksData = res as Banks[]
+      console.log(res);
+    });
+
   }
 
 }

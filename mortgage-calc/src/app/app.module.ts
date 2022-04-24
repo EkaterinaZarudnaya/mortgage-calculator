@@ -22,10 +22,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AddComponent } from './components/add/add.component';
 import {MatInputModule} from '@angular/material/input';
-import { GetButtonComponent } from './components/get-button/get-button.component';
 import { TableComponent } from './components/table/table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
+import { CalcComponent } from './components/calc/calc.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -34,9 +35,9 @@ import { DeleteButtonComponent } from './components/delete-button/delete-button.
     NavComponent,
     BanksComponent,
     AddComponent,
-    GetButtonComponent,
     TableComponent,
-    DeleteButtonComponent
+    DeleteButtonComponent,
+    CalcComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +60,8 @@ import { DeleteButtonComponent } from './components/delete-button/delete-button.
     MatInputModule,
     BrowserModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
-import { Component, NgModule, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { ReactiveFormsModule } from '@angular/forms';
 import {NgForm} from '@angular/forms';
 
 @Component({

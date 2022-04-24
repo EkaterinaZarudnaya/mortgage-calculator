@@ -34,6 +34,21 @@ app.get("/api/banks", cors(), (req, res, next) => {
       });
 });
 
+app.get("/api/banks/names", cors(), (req, res, next) => {
+    res.set('Access-Control-Allow-Origin', 'http://localhost:8000/');
+    var sql = "select id, name from banks order by id"
+    var params = []
+    db.all(sql, params, (err, rows) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "data":rows
+        })
+      });
+});
+
 
 app.get("/api/banks/:id", (req, res, next) => {
     var sql = "select * from banks where id = ?"

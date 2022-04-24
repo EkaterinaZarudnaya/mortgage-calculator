@@ -1,0 +1,42 @@
+.param-form {
+    min-width: 200px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+
+  /* Full-width input fields */
+  input[type=text], input[type=number] {
+    width: 100%;
+    display: inline-block;
+    border: none;
+  }
+  
+  .registerbtn {
+    background-color: #8044bb;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  .result{
+    border: 2px solid #8044bb;
+    min-width: 200px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 2%;
+    margin-top: 2%;
+  }

@@ -1,0 +1,20 @@
+<form class="param-form" #data="ngForm" (ngSubmit)="setUsersData(data.value.initloan,data.value.usersbankid)" >
+
+    <mat-form-field class="full-width" appearance="fill" required>
+        <mat-label>Initial loan </mat-label>
+        <input matInput placeholder="Ex. 1000" type="number" maxlength="50" min="1" id="initloan" name="initloan" ngModel="initloan" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Select the bank</mat-label>
+        <mat-select [(ngModel)]="selectedBank" name="usersbankid" required>
+            <mat-option *ngFor="let bank of banks" [value]="bank.id">
+              {{bank.name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+    
+    <button type="submit" class="registerbtn" (click)="resultShowdiv()">Calculate</button>
+</form>
+
+<div *ngIf="isShown" [innerHTML]="result" class="result"  id="result" ></div>
